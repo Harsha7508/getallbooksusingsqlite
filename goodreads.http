@@ -2,7 +2,7 @@ GET http://localhost:3000/books/
 
 ###
 
-GET http://localhost:3000/books/1/
+GET http://localhost:3000/books/45/
 
 ###
 
@@ -19,7 +19,7 @@ Content-Type: application/json
   "pages": 352,
   "dateOfPublication": "May 1st 2003",
   "editionLanguage": "English",
-  "price": 850,
+  "price": 1000,
   "onlineStores": "Amazon,Audible,Indigo,Apple Books,Google Play,IndieBound"
 }
 
@@ -48,4 +48,4 @@ DELETE http://localhost:3000/books/41/
 
 ###
 
-GET http://localhost:3000/authors/1/books/
+GET http://localhost:3000/authors/5/books/
