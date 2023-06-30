@@ -25,7 +25,7 @@ const initializeDBAndServer = async () => {
   }
 };
 initializeDBAndServer();
-
+---------------------------------------------------------------------------------------------------------------------
 // Get Books API
 app.get("/books/", async (request, response) => {
   const getBooksQuery = `
@@ -38,7 +38,7 @@ app.get("/books/", async (request, response) => {
   const booksArray = await db.all(getBooksQuery);
   response.send(booksArray);
 });
-
+-----------------------------------------------------------------------------------------------------------------------
 //Get Book API
 app.get("/books/:bookId/", async (request, response) => {
   const { bookId } = request.params;
@@ -49,7 +49,8 @@ app.get("/books/:bookId/", async (request, response) => {
   const oneBook = await db.get(bookQuery);
   response.send(oneBook);
 });
-
+----------------------------------------------------------------------------------------------------------------------------
+ // Create API
 app.post("/books/", async (request, response) => {
   const bookDetails = request.body;
   const {
@@ -87,6 +88,8 @@ app.post("/books/", async (request, response) => {
   const bookId = dbResponse.lastID;
   response.send({ bookId: bookId });
 });
+-----------------------------------------------------------------------------------------------------------------------------------------------
+//Update API
 
 app.put("/books/:bookId/", async (request, response) => {
   const { bookId } = request.params;
@@ -126,6 +129,8 @@ app.put("/books/:bookId/", async (request, response) => {
   const dbResponse = await db.run(updateBookQuery);
   response.send("Book Updated Successfully");
 });
+--------------------------------------------------------------------------------------------------------------------------------------------
+//Delete API
 
 app.delete("/books/:bookId/", async (request, response) => {
   const { bookId } = request.params;
@@ -137,6 +142,8 @@ app.delete("/books/:bookId/", async (request, response) => {
   await db.run(deleteBookQuery);
   response.send("Book Deleted Successfully");
 });
+-------------------------------------------------------------------------------------------------------------------------------------------
+//Particular Author
 
 app.get("/authors/:authorId/books/", async (request, response) => {
   const { authorId } = request.params;
